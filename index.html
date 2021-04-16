@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coding assesment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Deadline</h1>
+    <form name="Deadline">
+      <input type="text" id="default_value" value = "0"><br><br>
+      <input type = "text" id = "days_allotted"><br><br>
+      <input type="reset" value="Reset">
+      <button type="button" onclick="add_Days()">Calculate</button>
+      <p id = "output"></p>
+    </form>
+
+  <script>
+  Date.prototype.addDays = function (days) {
+    let date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+function add_Days(){
+      var x = document.getElementById("days_allotted").value;
+      y = parseInt(x);
+
+      let date = new Date();
+      document.getElementById("output").innerHTML = "Your deadline is: "+(date.addDays(y));
+    }
+
+  </script>
+
+</body>
+</html>
